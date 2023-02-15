@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactjs-learning
+  labels:
+    app: reactjs-learning
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactjs-learning
+  template:
+    metadata:
+      labels:
+        app: reactjs-learning
+    spec:
+      containers:
+      - name: reactjs-learning
+        image: ndnamtma/reactjs-learning:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+        - name: REACT_APP_CATALOG_URL
+          value: "Hello from the k8s environment"
+        - name: TESTTEST
+          value: "TESTEST env"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactjs-learning
+spec:
+  selector:
+    app: reactjs-learning
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 80

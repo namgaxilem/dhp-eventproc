@@ -1,0 +1,48 @@
+spring:
+  profiles:
+    active: local
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    azure:
+      active-directory:
+        enabled: true
+        post-logout-redirect-uri: 'http://localhost:8080/'
+        profile:
+          tenant-id: d400665f-0274-46fe-899b-38ed0885144a
+        credential:
+          client-id: dc8f3d14-355c-4223-80cb-23e938c26027
+          client-secret: ~8V8Q~Flox2Dvz~9G3xmQoSook4e3_19MiFQEalI
+        app-id-uri: api://dc8f3d14-355c-4223-80cb-23e938c26027
+        application-type: web_application # web_application_and_resource_server  # This is required.
+        authorization-clients:
+          dhp-eventproc-catalog:
+            scopes:
+              - api://9911dd89-b9c5-4de4-b3bb-265d5c214e91/Obo.Catalog
+          dhp-eventproc-deployment:
+#            authorization-grant-type: on_behalf_of # When authorization-grant-type is null, on_behalf_of flow is used by default
+            scopes:
+              - api://05b23345-b17a-4c50-99a1-959287ce863b/Obo.Deployment.NifiScope
+
+info:
+  app:
+    version: 1.0.0
+    ANDROID_HOME: ${ANDROID_HOME}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - rest-end-point
+  info:
+    env:
+      enabled: true
+
+webclient:
+  config:
+    catalogUrl: 'http://localhost:8181/v1'
+    deploymentUrl: 'http://localhost:8282/v1'

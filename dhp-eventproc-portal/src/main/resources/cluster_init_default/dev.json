@@ -1,0 +1,5 @@
+{
+  "clusterName": "dev-env",
+  "repository": "dhpacr.npe",
+  "image": "nifiagent"
+}

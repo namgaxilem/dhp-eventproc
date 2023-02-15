@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: local
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    azure:
+      active-directory:
+        enabled: true
+        post-logout-redirect-uri: 'http://localhost:4000/'
+        profile:
+          tenant-id: d400665f-0274-46fe-899b-38ed0885144a
+        credential:
+          client-id: abe58f6a-a502-4a12-ad17-f7b6578d8c9f
+          client-secret: Uqe8Q~_XQJ-HuY.hANUhjRhNDch.nmwHUlS5Nae6
+        app-id-uri: api://abe58f6a-a502-4a12-ad17-f7b6578d8c9f
+        application-type: web_application # web_application_and_resource_server  # This is required.
+
+server:
+  port: 4000

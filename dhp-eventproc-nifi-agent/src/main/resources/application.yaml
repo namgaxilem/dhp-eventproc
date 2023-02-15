@@ -1,0 +1,22 @@
+spring:
+  mvc.pathmatch.matching-strategy: ANT_PATH_MATCHER
+  cloud:
+    azure:
+      active-directory:
+        enabled: true
+        credential:
+          client-id: ef73a53e-2be4-463b-a033-bbf16b6a9c3f
+        app-id-uri: api://ef73a53e-2be4-463b-a033-bbf16b6a9c3f
+        profile:
+          tenant-id: d400665f-0274-46fe-899b-38ed0885144a
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate: ERROR
+    org.hibernate.type: TRACE
+
+server:
+  port: 8383
+
+

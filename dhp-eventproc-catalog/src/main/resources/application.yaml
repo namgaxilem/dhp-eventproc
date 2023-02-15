@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/catalog
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 010917Sa
+  h2.console.enabled: true
+  mvc.pathmatch.matching-strategy: ANT_PATH_MATCHER
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+  cloud:
+    azure:
+      active-directory:
+        enabled: true
+        credential:
+          client-id: 9911dd89-b9c5-4de4-b3bb-265d5c214e91
+        app-id-uri: api://9911dd89-b9c5-4de4-b3bb-265d5c214e91
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate: ERROR
+    org.hibernate.type: TRACE
+
+server:
+  port: 8181
+#  cors:
+#    pathMapping: "/**"
+#    allowedOrigins: "http://localhost:3000"
+#    allowedMethods: "*"
+
